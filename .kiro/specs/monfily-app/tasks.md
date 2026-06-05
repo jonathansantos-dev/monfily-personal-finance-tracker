@@ -75,9 +75,9 @@ This implementation plan breaks down the Monfily personal finance application in
 - [ ] 6. Accounts Feature
   - [x] 6.1 Create server actions for accounts CRUD (`getAccounts`, `createAccount`, `updateAccount`, `deleteAccount`) in `app/(app)/accounts/actions.ts`
     - _Requirements: 7.1, 7.3, 7.5_
-  - [ ] 6.2 Implement accounts list page displaying all accounts with name, type, balance (formatted), and color
+  - [x] 6.2 Implement accounts list page displaying all accounts with name, type, balance (formatted), and color
     - _Requirements: 7.6_
-  - [ ] 6.3 Implement create account form with name, type (dropdown: Checking, Savings, Credit Card, Wallet, Cash, Investment, Other), initial balance, and color picker
+  - [x] 6.3 Implement create account form with name, type (dropdown: Checking, Savings, Credit Card, Wallet, Cash, Investment, Other), initial balance, and color picker
     - _Requirements: 7.1, 7.2_
   - [ ] 6.4 Implement edit account dialog/form
     - _Requirements: 7.3_
@@ -89,9 +89,9 @@ This implementation plan breaks down the Monfily personal finance application in
 - [ ] 7. Categories Feature
   - [x] 7.1 Create server actions for categories CRUD (`getCategories`, `createCategory`, `updateCategory`, `deleteCategory`) in `app/(app)/categories/actions.ts`
     - _Requirements: 8.1, 8.2, 8.3_
-  - [ ] 7.2 Implement categories list page displaying all categories with icon and color
+  - [x] 7.2 Implement categories list page displaying all categories with icon and color
     - _Requirements: 8.4_
-  - [ ] 7.3 Implement create category form with name, icon selector, and color picker
+  - [x] 7.3 Implement create category form with name, icon selector, and color picker
     - _Requirements: 8.1_
   - [ ] 7.4 Implement edit category dialog/form
     - _Requirements: 8.2_
