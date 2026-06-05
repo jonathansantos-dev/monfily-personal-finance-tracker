@@ -6,6 +6,19 @@ import Link from "next/link";
 import { createClient } from "../../../../lib/supabase/client";
 
 const ERROR_INVALID_CREDENTIALS = "Invalid email or password. Please try again.";
+const ERROR_EMAIL_NOT_CONFIRMED = "Please confirm your email address before signing in. Check your inbox for a confirmation link.";
+const ERROR_GENERIC = "Something went wrong. Please try again.";
+
+function getErrorMessage(errorMessage: string): string {
+  const lower = errorMessage.toLowerCase();
+  if (lower.includes("email not confirmed") || lower.includes("email_not_confirmed")) {
+    return ERROR_EMAIL_NOT_CONFIRMED;
+  }
+  if (lower.includes("invalid") || lower.includes("credentials")) {
+    return ERROR_INVALID_CREDENTIALS;
+  }
+  return ERROR_GENERIC;
+}
 
 export default function LoginPage() {
   const router = useRouter();
@@ -27,14 +40,14 @@ export default function LoginPage() {
       });
 
       if (authError) {
-        setError(ERROR_INVALID_CREDENTIALS);
+        setError(getErrorMessage(authError.message));
         return;
       }
 
       router.push("/dashboard");
       router.refresh();
     } catch {
-      setError(ERROR_INVALID_CREDENTIALS);
+      setError(ERROR_GENERIC);
     } finally {
       setIsLoading(false);
     }

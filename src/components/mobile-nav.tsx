@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { logout } from '@/app/(app)/actions';
+import { Logo } from './logo';
 
 interface MobileNavProps {
   displayName: string | null;
@@ -112,7 +113,10 @@ export function MobileNav({ displayName, avatarUrl }: MobileNavProps) {
             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
         </button>
-        <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">Monfily</span>
+        <span className="flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-gray-100">
+          <Logo size={22} />
+          Monfily
+        </span>
         <div className="w-10" aria-hidden="true" />
       </header>
 

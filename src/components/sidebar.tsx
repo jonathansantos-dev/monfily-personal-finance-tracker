@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { logout } from '@/app/(app)/actions';
+import { Logo } from './logo';
 
 interface SidebarProps {
   displayName: string | null;
@@ -89,8 +90,14 @@ export function Sidebar({ displayName, avatarUrl }: SidebarProps) {
 
   return (
     <aside className="hidden md:flex md:flex-col md:w-64 md:fixed md:inset-y-0 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800">
-      {/* User info header */}
-      <div className="flex items-center gap-3 px-4 py-5 border-b border-gray-200 dark:border-gray-800">
+      {/* Brand header */}
+      <div className="flex items-center gap-2.5 px-4 py-4 border-b border-gray-200 dark:border-gray-800">
+        <Logo size={28} />
+        <span className="text-lg font-bold text-gray-900 dark:text-gray-100">Monfily</span>
+      </div>
+
+      {/* User info */}
+      <div className="flex items-center gap-3 px-4 py-4 border-b border-gray-200 dark:border-gray-800">
         {avatarUrl ? (
           <Image
               src={avatarUrl}

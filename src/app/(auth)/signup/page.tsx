@@ -14,6 +14,7 @@ export default function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   function validateForm(): string | null {
@@ -26,6 +27,7 @@ export default function SignupPage() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);
+    setSuccess(null);
 
     const validationError = validateForm();
     if (validationError) {
@@ -37,7 +39,7 @@ export default function SignupPage() {
 
     try {
       const supabase = createClient();
-      const { error: signUpError } = await supabase.auth.signUp({
+      const { data, error: signUpError } = await supabase.auth.signUp({
         email,
         password,
       });
@@ -51,6 +53,15 @@ export default function SignupPage() {
         return;
       }
 
+      // If the user's email needs confirmation (identities array is empty or session is null)
+      if (data.user && !data.session) {
+        setSuccess(
+          "Account created! Please check your email inbox and click the confirmation link to activate your account."
+        );
+        return;
+      }
+
+      // If email confirmation is disabled, redirect directly
       router.push("/dashboard");
     } catch {
       setError(ERROR_GENERIC);
@@ -75,6 +86,15 @@ export default function SignupPage() {
             className="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-800 dark:bg-red-950 dark:text-red-300"
           >
             {error}
+          </div>
+        )}
+
+        {success && (
+          <div
+            role="status"
+            className="rounded-md border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-700 dark:border-green-800 dark:bg-green-950 dark:text-green-300"
+          >
+            {success}
           </div>
         )}
 

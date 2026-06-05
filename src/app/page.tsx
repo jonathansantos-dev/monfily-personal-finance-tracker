@@ -1,10 +1,13 @@
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="text-4xl font-bold">Monfily</h1>
-      <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
-        Personal finance, simplified.
-      </p>
-    </main>
-  );
+import { redirect } from 'next/navigation';
+import { createClient } from '../../lib/supabase/server';
+
+export default async function Home() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
+  if (user) {
+    redirect('/dashboard');
+  } else {
+    redirect('/login');
+  }
 }
