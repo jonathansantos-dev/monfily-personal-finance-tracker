@@ -140,16 +140,16 @@ This implementation plan breaks down the Monfily personal finance application in
     - **Property 6: Recent Transactions Ordering**
     - **Validates: Requirements 4.3**
 
-- [ ] 11. Profile, Settings, and Balance Integrity
-  - [ ] 11.1 Implement profile page with display name edit form
+- [x] 11. Profile, Settings, and Balance Integrity
+  - [x] 11.1 Implement profile page with display name edit form
     - _Requirements: 9.1_
-  - [ ] 11.2 Implement avatar upload with client-side 2 MB validation and Supabase Storage integration
+  - [x] 11.2 Implement avatar upload with client-side 2 MB validation and Supabase Storage integration
     - _Requirements: 9.2, 9.3_
-  - [ ] 11.3 Implement settings page with dark mode toggle
+  - [x] 11.3 Implement settings page with dark mode toggle
     - _Requirements: 10.1, 10.2_
-  - [ ] 11.4 Create server action for updating dark mode preference in profiles table
+  - [x] 11.4 Create server action for updating dark mode preference in profiles table
     - _Requirements: 10.3_
-  - [ ] 11.5 Ensure dark mode preference persists and applies on page load (server-side class injection)
+  - [x] 11.5 Ensure dark mode preference persists and applies on page load (server-side class injection)
     - _Requirements: 10.3, 10.4_
   - [ ]* 11.6 Write property-based test: account balance invariant (balance = initial + sum(income) - sum(expenses))
     - **Property 2: Transaction Balance Invariant**
