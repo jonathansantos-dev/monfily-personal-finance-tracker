@@ -101,9 +101,9 @@ This implementation plan breaks down the Monfily personal finance application in
 - [ ] 8. Transactions Feature
   - [x] 8.1 Create server actions for transactions CRUD (`getTransactions`, `createTransaction`, `updateTransaction`, `deleteTransaction`) in `app/(app)/transactions/actions.ts`
     - _Requirements: 5.1, 5.3, 5.4, 5.5, 5.6_
-  - [ ] 8.2 Implement transactions list page with amount (formatted), type badge, category, account, date, and description
+  - [x] 8.2 Implement transactions list page with amount (formatted), type badge, category, account, date, and description
     - _Requirements: 5.1, 12.1_
-  - [ ] 8.3 Implement create transaction form with amount input (dollars), type toggle (income/expense), category select, account select, date picker, and optional description
+  - [x] 8.3 Implement create transaction form with amount input (dollars), type toggle (income/expense), category select, account select, date picker, and optional description
     - _Requirements: 5.1, 5.2_
   - [ ] 8.4 Implement edit transaction dialog/form with balance recalculation on amount or account change
     - _Requirements: 5.3, 5.5_
