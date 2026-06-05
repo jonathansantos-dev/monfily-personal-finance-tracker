@@ -49,15 +49,15 @@ This implementation plan breaks down the Monfily personal finance application in
     - **Validates: Requirements 5.2, 7.1**
 
 - [ ] 4. Authentication
-  - [ ] 4.1 Create `(auth)` route group layout (centered, minimal design)
+  - [x] 4.1 Create `(auth)` route group layout (centered, minimal design)
     - _Requirements: 1.1, 2.1_
-  - [ ] 4.2 Implement signup page with email/password form, client-side validation (min 6 chars), and Supabase Auth signup
+  - [x] 4.2 Implement signup page with email/password form, client-side validation (min 6 chars), and Supabase Auth signup
     - _Requirements: 1.1, 1.2, 1.3, 1.4_
-  - [ ] 4.3 Implement login page with email/password form and Supabase Auth login
+  - [x] 4.3 Implement login page with email/password form and Supabase Auth login
     - _Requirements: 2.1, 2.2_
-  - [ ] 4.4 Implement middleware for session refresh and route protection (redirect unauthenticated to /login, authenticated from /auth to /dashboard)
+  - [~] 4.4 Implement middleware for session refresh and route protection (redirect unauthenticated to /login, authenticated from /auth to /dashboard)
     - _Requirements: 2.3, 2.4_
-  - [ ] 4.5 Add logout server action and integrate into the protected layout
+  - [~] 4.5 Add logout server action and integrate into the protected layout
     - _Requirements: 3.1, 3.2, 3.3_
 
 - [ ] 5. Protected Layout and Navigation
