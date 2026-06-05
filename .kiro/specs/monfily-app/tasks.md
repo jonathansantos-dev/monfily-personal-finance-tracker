@@ -6,18 +6,18 @@ This implementation plan breaks down the Monfily personal finance application in
 
 ## Tasks
 
-- [ ] 1. Project Setup and Configuration
+- [x] 1. Project Setup and Configuration
   - [x] 1.1 Initialize Next.js project with App Router, TypeScript strict mode, Tailwind CSS, and ESLint
     - _Requirements: 11.1, 10.1_
   - [x] 1.2 Install and configure Supabase client libraries (`@supabase/supabase-js`, `@supabase/ssr`)
     - _Requirements: 11.1_
   - [x] 1.3 Create environment variables configuration (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`)
     - _Requirements: 11.1_
-  - [ ] 1.4 Create Supabase client utilities: `lib/supabase/client.ts` (browser), `lib/supabase/server.ts` (server), `lib/supabase/middleware.ts`
+  - [x] 1.4 Create Supabase client utilities: `lib/supabase/client.ts` (browser), `lib/supabase/server.ts` (server), `lib/supabase/middleware.ts`
     - _Requirements: 11.1, 2.3_
-  - [ ] 1.5 Configure Tailwind dark mode with class strategy
+  - [x] 1.5 Configure Tailwind dark mode with class strategy
     - _Requirements: 10.1, 10.2_
-  - [ ] 1.6 Set up root layout with font loading and base providers
+  - [x] 1.6 Set up root layout with font loading and base providers
     - _Requirements: 10.4_
 
 - [ ] 2. Database Schema and RLS
