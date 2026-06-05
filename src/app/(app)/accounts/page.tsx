@@ -1,17 +1,6 @@
 import { getAccounts } from './actions';
-import { formatCurrency } from '../../../../lib/utils/currency';
 import { CreateAccountForm } from '../../../components/create-account-form';
-import type { AccountType } from '../../../../lib/types/database';
-
-const ACCOUNT_TYPE_LABELS: Record<AccountType, string> = {
-  checking: 'Checking',
-  savings: 'Savings',
-  credit_card: 'Credit Card',
-  wallet: 'Wallet',
-  cash: 'Cash',
-  investment: 'Investment',
-  other: 'Other',
-};
+import { AccountCard } from '../../../components/account-card';
 
 /**
  * Accounts page — displays all user accounts and a form to create new ones.
@@ -62,36 +51,7 @@ export default async function AccountsPage() {
         ) : (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {accounts.map((account) => (
-              <div
-                key={account.id}
-                className="relative overflow-hidden rounded-lg border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-900"
-              >
-                {/* Color indicator bar */}
-                <div
-                  className="absolute inset-y-0 left-0 w-1"
-                  style={{ backgroundColor: account.color }}
-                  aria-hidden="true"
-                />
-
-                <div className="pl-3">
-                  <div className="flex items-center gap-2">
-                    <span
-                      className="inline-block h-3 w-3 rounded-full flex-shrink-0"
-                      style={{ backgroundColor: account.color }}
-                      aria-hidden="true"
-                    />
-                    <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">
-                      {account.name}
-                    </h3>
-                  </div>
-                  <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                    {ACCOUNT_TYPE_LABELS[account.type]}
-                  </p>
-                  <p className="mt-2 text-lg font-bold text-gray-900 dark:text-gray-100">
-                    {formatCurrency(account.balance_cents)}
-                  </p>
-                </div>
-              </div>
+              <AccountCard key={account.id} account={account} />
             ))}
           </div>
         )}

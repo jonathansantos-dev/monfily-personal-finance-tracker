@@ -79,23 +79,23 @@ This implementation plan breaks down the Monfily personal finance application in
     - _Requirements: 7.6_
   - [x] 6.3 Implement create account form with name, type (dropdown: Checking, Savings, Credit Card, Wallet, Cash, Investment, Other), initial balance, and color picker
     - _Requirements: 7.1, 7.2_
-  - [ ] 6.4 Implement edit account dialog/form
+  - [x] 6.4 Implement edit account dialog/form
     - _Requirements: 7.3_
-  - [ ] 6.5 Implement delete account with confirmation dialog warning about associated transaction deletion
+  - [x] 6.5 Implement delete account with confirmation dialog warning about associated transaction deletion
     - _Requirements: 7.4, 7.5_
   - [ ] 6.6 Wire balance adjustment to `adjust_account_balance` RPC on transaction mutations
     - _Requirements: 7.7, 5.1, 5.3, 5.4_
 
-- [ ] 7. Categories Feature
+- [x] 7. Categories Feature
   - [x] 7.1 Create server actions for categories CRUD (`getCategories`, `createCategory`, `updateCategory`, `deleteCategory`) in `app/(app)/categories/actions.ts`
     - _Requirements: 8.1, 8.2, 8.3_
   - [x] 7.2 Implement categories list page displaying all categories with icon and color
     - _Requirements: 8.4_
   - [x] 7.3 Implement create category form with name, icon selector, and color picker
     - _Requirements: 8.1_
-  - [ ] 7.4 Implement edit category dialog/form
+  - [x] 7.4 Implement edit category dialog/form
     - _Requirements: 8.2_
-  - [ ] 7.5 Implement delete category with check for associated transactions (prevent if in use)
+  - [x] 7.5 Implement delete category with check for associated transactions (prevent if in use)
     - _Requirements: 8.3_
 
 - [ ] 8. Transactions Feature

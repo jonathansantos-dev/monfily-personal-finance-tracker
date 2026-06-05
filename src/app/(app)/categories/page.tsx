@@ -1,5 +1,6 @@
 import { getCategories } from './actions';
 import { CreateCategoryForm } from '@/components/create-category-form';
+import { CategoryCard } from '@/components/category-card';
 import type { Category } from '../../../../lib/types/database';
 
 /**
@@ -64,33 +65,6 @@ export default async function CategoriesPage() {
           <CreateCategoryForm />
         </div>
       </div>
-    </div>
-  );
-}
-
-/** Individual category card displaying icon, name, and color indicator. */
-function CategoryCard({ category }: { category: Category }) {
-  return (
-    <div className="flex items-center gap-3 p-4 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 transition-colors hover:border-gray-300 dark:hover:border-gray-700">
-      {/* Icon with colored background */}
-      <div
-        className="w-10 h-10 rounded-lg flex items-center justify-center text-lg shrink-0"
-        style={{ backgroundColor: category.color + '20' }}
-      >
-        {category.icon}
-      </div>
-
-      {/* Name */}
-      <span className="text-sm font-medium text-gray-900 dark:text-gray-100 truncate">
-        {category.name}
-      </span>
-
-      {/* Color indicator */}
-      <div
-        className="w-3 h-3 rounded-full ml-auto shrink-0"
-        style={{ backgroundColor: category.color }}
-        aria-label={`Color: ${category.color}`}
-      />
     </div>
   );
 }
