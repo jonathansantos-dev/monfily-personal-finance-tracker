@@ -72,7 +72,7 @@ This implementation plan breaks down the Monfily personal finance application in
   - [x] 5.5 Integrate dark mode class toggle into the protected layout based on user preference
     - _Requirements: 10.1, 10.2, 10.3_
 
-- [ ] 6. Accounts Feature
+- [x] 6. Accounts Feature
   - [x] 6.1 Create server actions for accounts CRUD (`getAccounts`, `createAccount`, `updateAccount`, `deleteAccount`) in `app/(app)/accounts/actions.ts`
     - _Requirements: 7.1, 7.3, 7.5_
   - [x] 6.2 Implement accounts list page displaying all accounts with name, type, balance (formatted), and color
@@ -83,7 +83,7 @@ This implementation plan breaks down the Monfily personal finance application in
     - _Requirements: 7.3_
   - [x] 6.5 Implement delete account with confirmation dialog warning about associated transaction deletion
     - _Requirements: 7.4, 7.5_
-  - [ ] 6.6 Wire balance adjustment to `adjust_account_balance` RPC on transaction mutations
+  - [x] 6.6 Wire balance adjustment to `adjust_account_balance` RPC on transaction mutations
     - _Requirements: 7.7, 5.1, 5.3, 5.4_
 
 - [x] 7. Categories Feature
@@ -99,7 +99,7 @@ This implementation plan breaks down the Monfily personal finance application in
     - _Requirements: 8.3_
 
 - [ ] 8. Transactions Feature
-  - [ ] 8.1 Create server actions for transactions CRUD (`getTransactions`, `createTransaction`, `updateTransaction`, `deleteTransaction`) in `app/(app)/transactions/actions.ts`
+  - [x] 8.1 Create server actions for transactions CRUD (`getTransactions`, `createTransaction`, `updateTransaction`, `deleteTransaction`) in `app/(app)/transactions/actions.ts`
     - _Requirements: 5.1, 5.3, 5.4, 5.5, 5.6_
   - [ ] 8.2 Implement transactions list page with amount (formatted), type badge, category, account, date, and description
     - _Requirements: 5.1, 12.1_
