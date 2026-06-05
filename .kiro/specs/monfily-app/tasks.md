@@ -36,10 +36,10 @@ This implementation plan breaks down the Monfily personal finance application in
   - [x] 2.7 Create Supabase Storage bucket configuration for avatars
     - _Requirements: 9.2_
 
-- [ ] 3. TypeScript Types and Currency Utilities
-  - [ ] 3.1 Create database types in `lib/types/database.ts` matching the schema (Account, Transaction, Category, Profile types)
+- [x] 3. TypeScript Types and Currency Utilities
+  - [x] 3.1 Create database types in `lib/types/database.ts` matching the schema (Account, Transaction, Category, Profile types)
     - _Requirements: 5.2, 7.1, 12.2, 12.3_
-  - [ ] 3.2 Implement `lib/utils/currency.ts` with `centsToDollars`, `dollarsToCents`, `formatCurrency`, `parseCurrencyInput`
+  - [x] 3.2 Implement `lib/utils/currency.ts` with `centsToDollars`, `dollarsToCents`, `formatCurrency`, `parseCurrencyInput`
     - _Requirements: 12.1, 12.2, 12.3, 12.4_
   - [ ]* 3.3 Write property-based test: currency round-trip (formatCurrency → parseCurrencyInput returns original cents)
     - **Property 1: Currency Round-Trip**
