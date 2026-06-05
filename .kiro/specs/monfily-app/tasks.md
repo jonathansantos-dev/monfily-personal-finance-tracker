@@ -60,16 +60,16 @@ This implementation plan breaks down the Monfily personal finance application in
   - [x] 4.5 Add logout server action and integrate into the protected layout
     - _Requirements: 3.1, 3.2, 3.3_
 
-- [ ] 5. Protected Layout and Navigation
-  - [ ] 5.1 Create `(app)` route group layout with sidebar navigation
+- [x] 5. Protected Layout and Navigation
+  - [x] 5.1 Create `(app)` route group layout with sidebar navigation
     - _Requirements: 4.1_
-  - [ ] 5.2 Implement sidebar with links to Dashboard, Transactions, Accounts, Categories, Profile, Settings
+  - [x] 5.2 Implement sidebar with links to Dashboard, Transactions, Accounts, Categories, Profile, Settings
     - _Requirements: 4.1_
-  - [ ] 5.3 Add user avatar and display name to sidebar header
+  - [x] 5.3 Add user avatar and display name to sidebar header
     - _Requirements: 9.1, 9.2_
-  - [ ] 5.4 Implement responsive mobile navigation (hamburger menu)
+  - [x] 5.4 Implement responsive mobile navigation (hamburger menu)
     - _Requirements: 4.1_
-  - [ ] 5.5 Integrate dark mode class toggle into the protected layout based on user preference
+  - [x] 5.5 Integrate dark mode class toggle into the protected layout based on user preference
     - _Requirements: 10.1, 10.2, 10.3_
 
 - [ ] 6. Accounts Feature
