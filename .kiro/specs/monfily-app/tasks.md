@@ -119,7 +119,7 @@ This implementation plan breaks down the Monfily personal finance application in
     - **Property 3: Filter Correctness**
     - **Validates: Requirements 6.1, 6.2, 6.3**
 
-- [ ] 9. Checkpoint - Ensure core features work
+- [x] 9. Checkpoint - Ensure core features work
   - Ensure all tests pass, ask the user if questions arise.
 
 - [ ] 10. Dashboard
