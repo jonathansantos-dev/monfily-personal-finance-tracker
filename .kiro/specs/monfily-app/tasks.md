@@ -98,22 +98,22 @@ This implementation plan breaks down the Monfily personal finance application in
   - [x] 7.5 Implement delete category with check for associated transactions (prevent if in use)
     - _Requirements: 8.3_
 
-- [ ] 8. Transactions Feature
+- [x] 8. Transactions Feature
   - [x] 8.1 Create server actions for transactions CRUD (`getTransactions`, `createTransaction`, `updateTransaction`, `deleteTransaction`) in `app/(app)/transactions/actions.ts`
     - _Requirements: 5.1, 5.3, 5.4, 5.5, 5.6_
   - [x] 8.2 Implement transactions list page with amount (formatted), type badge, category, account, date, and description
     - _Requirements: 5.1, 12.1_
   - [x] 8.3 Implement create transaction form with amount input (dollars), type toggle (income/expense), category select, account select, date picker, and optional description
     - _Requirements: 5.1, 5.2_
-  - [ ] 8.4 Implement edit transaction dialog/form with balance recalculation on amount or account change
+  - [x] 8.4 Implement edit transaction dialog/form with balance recalculation on amount or account change
     - _Requirements: 5.3, 5.5_
-  - [ ] 8.5 Implement delete transaction with balance reversal
+  - [x] 8.5 Implement delete transaction with balance reversal
     - _Requirements: 5.4_
-  - [ ] 8.6 Implement transaction type filter (income, expense, all)
+  - [x] 8.6 Implement transaction type filter (income, expense, all)
     - _Requirements: 6.1_
-  - [ ] 8.7 Implement date range filter with start and end date pickers
+  - [x] 8.7 Implement date range filter with start and end date pickers
     - _Requirements: 6.2_
-  - [ ] 8.8 Implement combined filtering logic and empty state display
+  - [x] 8.8 Implement combined filtering logic and empty state display
     - _Requirements: 6.3, 6.4_
   - [ ]* 8.9 Write property-based test: filter correctness (all returned transactions match active filters)
     - **Property 3: Filter Correctness**

@@ -1,105 +1,41 @@
+import { Suspense } from 'react';
 import { getTransactions } from './actions';
 import { getAccounts } from '../accounts/actions';
 import { getCategories } from '../categories/actions';
 import { CreateTransactionForm } from '@/components/create-transaction-form';
-import { formatCurrency } from '../../../../lib/utils/currency';
-import type { TransactionWithRelations } from './actions';
+import { TransactionRow } from '@/components/transaction-row';
+import { TransactionFilters } from '@/components/transaction-filters';
 
-/**
- * Formats a date string (YYYY-MM-DD) to a human-readable format.
- */
-function formatDate(dateStr: string): string {
-  const date = new Date(dateStr + 'T00:00:00');
-  return date.toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  });
-}
-
-/**
- * Renders a single transaction row with all relevant details.
- */
-function TransactionRow({ transaction }: { transaction: TransactionWithRelations }) {
-  const isIncome = transaction.type === 'income';
-
-  return (
-    <div className="flex items-center gap-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-900">
-      {/* Category icon */}
-      <div
-        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-lg"
-        style={{ backgroundColor: transaction.categories?.color ?? '#6366f1' }}
-        aria-hidden="true"
-      >
-        {transaction.categories?.icon ?? '📦'}
-      </div>
-
-      {/* Main info */}
-      <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-2 flex-wrap">
-          <span className="text-sm font-medium text-gray-900 dark:text-gray-100 truncate">
-            {transaction.categories?.name ?? 'Uncategorized'}
-          </span>
-          <span
-            className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ${
-              isIncome
-                ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400'
-                : 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400'
-            }`}
-          >
-            {isIncome ? 'Income' : 'Expense'}
-          </span>
-        </div>
-
-        {/* Account with color dot */}
-        <div className="mt-1 flex items-center gap-1.5">
-          <span
-            className="inline-block h-2.5 w-2.5 rounded-full shrink-0"
-            style={{ backgroundColor: transaction.accounts?.color ?? '#6366f1' }}
-            aria-hidden="true"
-          />
-          <span className="text-xs text-gray-500 dark:text-gray-400 truncate">
-            {transaction.accounts?.name ?? 'Unknown Account'}
-          </span>
-        </div>
-
-        {/* Description */}
-        {transaction.description && (
-          <p className="mt-1 text-xs text-gray-500 dark:text-gray-400 truncate">
-            {transaction.description}
-          </p>
-        )}
-      </div>
-
-      {/* Amount and date */}
-      <div className="text-right shrink-0">
-        <p
-          className={`text-sm font-semibold ${
-            isIncome
-              ? 'text-green-600 dark:text-green-400'
-              : 'text-red-600 dark:text-red-400'
-          }`}
-        >
-          {isIncome ? '+' : '-'}{formatCurrency(transaction.amount_cents)}
-        </p>
-        <p className="mt-0.5 text-xs text-gray-500 dark:text-gray-400">
-          {formatDate(transaction.date)}
-        </p>
-      </div>
-    </div>
-  );
+interface TransactionsPageProps {
+  searchParams: Promise<{
+    type?: string;
+    startDate?: string;
+    endDate?: string;
+  }>;
 }
 
 /**
  * Transactions page — server component.
- * Fetches transactions, accounts, and categories.
- * Renders the transaction list and create form.
+ * Reads URL searchParams for filter state and passes them to getTransactions.
+ * Renders the transaction list with edit/delete actions, filters, and create form.
  *
- * Validates: Requirements 5.1, 12.1
+ * Validates: Requirements 5.1, 5.3, 5.4, 6.1, 6.2, 12.1
  */
-export default async function TransactionsPage() {
+export default async function TransactionsPage({ searchParams }: TransactionsPageProps) {
+  const params = await searchParams;
+
+  const typeParam = params.type;
+  const typeFilter: 'income' | 'expense' | 'all' =
+    typeParam === 'income' || typeParam === 'expense' ? typeParam : 'all';
+
+  const filters = {
+    type: typeFilter,
+    startDate: params.startDate,
+    endDate: params.endDate,
+  };
+
   const [transactionsResult, accountsResult, categoriesResult] = await Promise.all([
-    getTransactions(),
+    getTransactions(filters),
     getAccounts(),
     getCategories(),
   ]);
@@ -119,6 +55,11 @@ export default async function TransactionsPage() {
           Track your income and expenses
         </p>
       </div>
+
+      {/* Filters */}
+      <Suspense fallback={null}>
+        <TransactionFilters />
+      </Suspense>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Transactions list */}
@@ -151,10 +92,12 @@ export default async function TransactionsPage() {
                   />
                 </svg>
                 <p className="mt-3 text-sm font-medium text-gray-900 dark:text-gray-100">
-                  No transactions yet
+                  No transactions found
                 </p>
                 <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                  Add your first transaction using the form to start tracking.
+                  {typeFilter !== 'all' || params.startDate || params.endDate
+                    ? 'Try adjusting your filters to see more results.'
+                    : 'Add your first transaction using the form to start tracking.'}
                 </p>
               </div>
             )}
@@ -162,7 +105,12 @@ export default async function TransactionsPage() {
             {transactions.length > 0 && (
               <div className="space-y-3">
                 {transactions.map((transaction) => (
-                  <TransactionRow key={transaction.id} transaction={transaction} />
+                  <TransactionRow
+                    key={transaction.id}
+                    transaction={transaction}
+                    accounts={accounts}
+                    categories={categories}
+                  />
                 ))}
               </div>
             )}
