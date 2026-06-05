@@ -122,16 +122,16 @@ This implementation plan breaks down the Monfily personal finance application in
 - [x] 9. Checkpoint - Ensure core features work
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 10. Dashboard
-  - [ ] 10.1 Create server actions/queries for dashboard data (`getTotalBalance`, `getMonthlyChartData`, `getRecentTransactions`) in `app/(app)/dashboard/actions.ts`
+- [x] 10. Dashboard
+  - [x] 10.1 Create server actions/queries for dashboard data (`getTotalBalance`, `getMonthlyChartData`, `getRecentTransactions`) in `app/(app)/dashboard/actions.ts`
     - _Requirements: 4.1, 4.2, 4.3_
-  - [ ] 10.2 Implement total balance card displaying sum of all account balances formatted as USD
+  - [x] 10.2 Implement total balance card displaying sum of all account balances formatted as USD
     - _Requirements: 4.1, 4.4_
-  - [ ] 10.3 Implement income vs. expenses bar/area chart for current month using Recharts
+  - [x] 10.3 Implement income vs. expenses bar/area chart for current month using Recharts
     - _Requirements: 4.2, 4.5_
-  - [ ] 10.4 Implement recent transactions list (10 most recent, ordered by date descending)
+  - [x] 10.4 Implement recent transactions list (10 most recent, ordered by date descending)
     - _Requirements: 4.3_
-  - [ ] 10.5 Implement empty states: $0.00 balance when no accounts, zero chart when no transactions
+  - [x] 10.5 Implement empty states: $0.00 balance when no accounts, zero chart when no transactions
     - _Requirements: 4.4, 4.5_
   - [ ]* 10.6 Write property-based test: total balance equals sum of individual account balances
     - **Property 4: Total Balance Equals Sum of Accounts**
