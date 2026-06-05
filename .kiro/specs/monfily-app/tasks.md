@@ -20,20 +20,20 @@ This implementation plan breaks down the Monfily personal finance application in
   - [x] 1.6 Set up root layout with font loading and base providers
     - _Requirements: 10.4_
 
-- [ ] 2. Database Schema and RLS
-  - [ ] 2.1 Create SQL migration for `profiles` table with RLS policies
+- [x] 2. Database Schema and RLS
+  - [x] 2.1 Create SQL migration for `profiles` table with RLS policies
     - _Requirements: 11.1, 11.2, 9.1_
-  - [ ] 2.2 Create SQL migration for `accounts` table with type CHECK constraint and RLS policies
+  - [x] 2.2 Create SQL migration for `accounts` table with type CHECK constraint and RLS policies
     - _Requirements: 7.2, 11.1, 11.2_
-  - [ ] 2.3 Create SQL migration for `categories` table with RLS policies
+  - [x] 2.3 Create SQL migration for `categories` table with RLS policies
     - _Requirements: 8.1, 11.1, 11.2_
-  - [ ] 2.4 Create SQL migration for `transactions` table with type CHECK, amount CHECK, foreign keys, and RLS policies
+  - [x] 2.4 Create SQL migration for `transactions` table with type CHECK, amount CHECK, foreign keys, and RLS policies
     - _Requirements: 5.1, 5.2, 11.1, 11.2_
-  - [ ] 2.5 Create SQL migration for `adjust_account_balance` PostgreSQL function
+  - [x] 2.5 Create SQL migration for `adjust_account_balance` PostgreSQL function
     - _Requirements: 5.1, 5.3, 5.4, 5.5_
-  - [ ] 2.6 Create SQL migration for trigger to auto-create profile on user signup
+  - [x] 2.6 Create SQL migration for trigger to auto-create profile on user signup
     - _Requirements: 1.1_
-  - [ ] 2.7 Create Supabase Storage bucket configuration for avatars
+  - [x] 2.7 Create Supabase Storage bucket configuration for avatars
     - _Requirements: 9.2_
 
 - [ ] 3. TypeScript Types and Currency Utilities
